@@ -66,30 +66,15 @@ public interface NotaDB {
 
     /**
      * 
-     * @param arg1
      * @param arg0
      */
     @WebMethod
-    @RequestWrapper(localName = "edit", targetNamespace = "http://projetosoap.paulobatista.ml/", className = "ml.paulobatista.projetosoap.Edit")
-    @ResponseWrapper(localName = "editResponse", targetNamespace = "http://projetosoap.paulobatista.ml/", className = "ml.paulobatista.projetosoap.EditResponse")
-    @Action(input = "http://projetosoap.paulobatista.ml/NotaDB/editRequest", output = "http://projetosoap.paulobatista.ml/NotaDB/editResponse")
-    public void edit(
+    @RequestWrapper(localName = "createEntidade", targetNamespace = "http://projetosoap.paulobatista.ml/", className = "ml.paulobatista.projetosoap.CreateEntidade")
+    @ResponseWrapper(localName = "createEntidadeResponse", targetNamespace = "http://projetosoap.paulobatista.ml/", className = "ml.paulobatista.projetosoap.CreateEntidadeResponse")
+    @Action(input = "http://projetosoap.paulobatista.ml/NotaDB/createEntidadeRequest", output = "http://projetosoap.paulobatista.ml/NotaDB/createEntidadeResponse")
+    public void createEntidade(
         @WebParam(name = "arg0", targetNamespace = "")
-        Integer arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        Nota arg1);
-
-    /**
-     * 
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "countREST", targetNamespace = "http://projetosoap.paulobatista.ml/", className = "ml.paulobatista.projetosoap.CountREST")
-    @ResponseWrapper(localName = "countRESTResponse", targetNamespace = "http://projetosoap.paulobatista.ml/", className = "ml.paulobatista.projetosoap.CountRESTResponse")
-    @Action(input = "http://projetosoap.paulobatista.ml/NotaDB/countRESTRequest", output = "http://projetosoap.paulobatista.ml/NotaDB/countRESTResponse")
-    public String countREST();
+        Nota arg0);
 
     /**
      * 
@@ -111,14 +96,29 @@ public interface NotaDB {
 
     /**
      * 
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "countREST", targetNamespace = "http://projetosoap.paulobatista.ml/", className = "ml.paulobatista.projetosoap.CountREST")
+    @ResponseWrapper(localName = "countRESTResponse", targetNamespace = "http://projetosoap.paulobatista.ml/", className = "ml.paulobatista.projetosoap.CountRESTResponse")
+    @Action(input = "http://projetosoap.paulobatista.ml/NotaDB/countRESTRequest", output = "http://projetosoap.paulobatista.ml/NotaDB/countRESTResponse")
+    public String countREST();
+
+    /**
+     * 
+     * @param arg1
      * @param arg0
      */
     @WebMethod
-    @RequestWrapper(localName = "createEntidade", targetNamespace = "http://projetosoap.paulobatista.ml/", className = "ml.paulobatista.projetosoap.CreateEntidade")
-    @ResponseWrapper(localName = "createEntidadeResponse", targetNamespace = "http://projetosoap.paulobatista.ml/", className = "ml.paulobatista.projetosoap.CreateEntidadeResponse")
-    @Action(input = "http://projetosoap.paulobatista.ml/NotaDB/createEntidadeRequest", output = "http://projetosoap.paulobatista.ml/NotaDB/createEntidadeResponse")
-    public void createEntidade(
+    @RequestWrapper(localName = "edit", targetNamespace = "http://projetosoap.paulobatista.ml/", className = "ml.paulobatista.projetosoap.Edit")
+    @ResponseWrapper(localName = "editResponse", targetNamespace = "http://projetosoap.paulobatista.ml/", className = "ml.paulobatista.projetosoap.EditResponse")
+    @Action(input = "http://projetosoap.paulobatista.ml/NotaDB/editRequest", output = "http://projetosoap.paulobatista.ml/NotaDB/editResponse")
+    public void edit(
         @WebParam(name = "arg0", targetNamespace = "")
-        Nota arg0);
+        Integer arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        Nota arg1);
 
 }

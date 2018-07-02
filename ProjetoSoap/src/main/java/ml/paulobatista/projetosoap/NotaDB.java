@@ -6,9 +6,12 @@
 package ml.paulobatista.projetosoap;
 
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.jws.WebService;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TransactionRequiredException;
+import javax.transaction.Transactional;
 import javax.ws.rs.PathParam;
 
 /**
@@ -21,7 +24,7 @@ import javax.ws.rs.PathParam;
 @WebService
 public class NotaDB extends AbstractFacade<Nota> {
 
-    @PersistenceContext(unitName = "ml.paulobatista_ProjetoRest_war_1.0-SNAPSHOTPU")
+    @PersistenceContext(unitName = "ml.paulobatista_ProjetoSoap_war_1.0-SNAPSHOTPU")
     private EntityManager em;
 
     public NotaDB() {
@@ -29,39 +32,39 @@ public class NotaDB extends AbstractFacade<Nota> {
     }
 
     public void createEntidade(Nota entity) {
-        super.create(entity);
+        try {
+            super.create(entity);
+        }catch(TransactionRequiredException tr) {
+            System.out.println(tr.getCause());
+        } 
+
     }
 
-
-   
     public void edit(Integer id, Nota entity) {
-        
-        super.edit(entity);
+        try {
+            super.edit(entity);
+        }catch(TransactionRequiredException tr) {
+            System.out.println(tr.getCause());
+        }
     }
-
 
     public void remove(Integer id) {
         super.remove(this.find(id));
     }
 
- 
     public Nota find(Integer id) {
         return super.find(id);
 
     }
 
-
     public List<Nota> findAll() {
         return super.findAll();
     }
 
-
-  
-    public List<Nota> findRange(Integer from,Integer to) {
+    public List<Nota> findRange(Integer from, Integer to) {
         return super.findRange(new int[]{from, to});
     }
 
-  
     public String countREST() {
         return String.valueOf(super.count());
     }

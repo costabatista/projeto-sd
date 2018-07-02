@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "NotaDBService", targetNamespace = "http://projetosoap.paulobatista.ml/", wsdlLocation = "http://localhost:8080/ProjetoSoap//NotaDBService?WSDL")
+@WebServiceClient(name = "NotaDBService", targetNamespace = "http://projetosoap.paulobatista.ml/", wsdlLocation = "http://localhost:8080/ProjetoSoap/NotaDBService?WSDL")
 public class NotaDBService
     extends Service
 {
@@ -30,7 +30,7 @@ public class NotaDBService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://localhost:8080/ProjetoSoap//NotaDBService?WSDL");
+            url = new URL("http://localhost:8080/ProjetoSoap/NotaDBService?WSDL");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

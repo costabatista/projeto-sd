@@ -187,7 +187,7 @@ public class VerTarefa extends javax.swing.JFrame {
             }
             try {
                 Date data = this.StringToDate(this.jFormattedTextField1.getText().trim());
-                nota.setDataNota(this.toXMLGregorianCalendar(data));
+                //nota.setDataNota(this.toXMLGregorianCalendar(data));
             } catch (ParseException ex) {
                 Logger.getLogger(VerTarefa.class.getName()).log(Level.SEVERE, null, ex);
             }
